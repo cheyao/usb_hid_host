@@ -35,18 +35,10 @@ wire [3:0] dbg_inst;
 // assign usb_pull_dp = 2'b0;
 // assign usb_pull_dn = 2'b0;
 
-reg clk25;
-always @(posedge clk) begin 
-	clk25 = ~clk25;
-end
-
-wire locked;
-
 pll clock(
-    .clk(clk25),
+    .clk(clk),
     .clkout0(clk_usb),       // 12Mhz usb clock
-    .clkout1(),
-    .locked(locked)
+    .locked()
 );
 
 usb_hid_host usb (

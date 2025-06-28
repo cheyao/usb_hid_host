@@ -2,6 +2,7 @@ module uart_tx_V2(
     input wire clk,
     input wire [7:0] din,
     input wire wr_en,
+
     output wire tx_busy,
 
     output reg tx_p    
